@@ -1,28 +1,28 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Que clima!</title>
-    <script src="index.js" defer></script>
-    <link rel="stylesheet" href="styles/style.css" />
-  </head>
 
-  <body>
-    <div class="container">
-      <div class="form">
-        <h1 class="title">Que clima!</h1>
-        <div class="form-field">
-          <label for="">Digite o nome da cidade:</label>
-          <input
-            type="text"
-            placeholder="Digite o nome do local"
-            name=""
-            id="city-input"
-          />
-          <button onclick="realizarRequisicao()" id="button-search"> Pesquisar </button>
-        </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Que clima!</title>
+  <script src="index.js" defer></script>
+  <link rel="stylesheet" href="styles/style.css" />
+</head>
+
+
+<body>
+  <div class="container">
+    <div class="form">
+      <h1 class="title">Que clima!</h1>
+      <div class="form-field">
+        <label for="">Digite o nome da cidade:</label>
+        <input type="text" placeholder="Digite o nome do local" name="" id="city-input" />
+        <button onclick="realizarRequisicao()" id="button-search"> Pesquisar </button>
+        <!-- Começa desabilitado para, quando clicar no botão, adicionar o evento -->
+        <div id="loading"></div>
       </div>
     </div>
-  </body>
+  </div>
+</body>
+
 </html>

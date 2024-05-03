@@ -1,9 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 
 
-:root{
+:root {
   --borda: 1px solid red;
-  --gradiente: linear-gradient(45deg, rgba(237,67,222,1) 7%, rgba(101,61,233,1) 55%, rgba(9,9,121,1) 100%);;
+  --gradiente: linear-gradient(45deg, rgba(237, 67, 222, 1) 7%, rgba(101, 61, 233, 1) 55%, rgba(9, 9, 121, 1) 100%);
+  --preto: #222222;
 }
 
 
