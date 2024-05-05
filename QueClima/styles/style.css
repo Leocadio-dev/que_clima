@@ -30,20 +30,20 @@
 .form .title {
   font-size: 2.5rem;
   font-weight: 800;
-  color: #f1f1f1;
+  color: var(--branco);
 }
 
 .form .form-field {
   display: flex;
   flex-direction: column;
-  align-items: start;
+  align-items: center;
   /* border: var(--borda); */
 }
 
 .form-field label {
   font-size: 1.3rem;
   font-weight: 700;
-  color: #f1f1f1;
+  color: var(--branco);
   position: relative;
 }
 
@@ -65,7 +65,7 @@
   border: none;
   border-radius: 6px;
   background-color: var(--preto);
-  color: #f1f1f1;
+  color: var(--branco);
   cursor: pointer;
   z-index: 1;
 
@@ -109,6 +109,34 @@
 /* Biblioteca para fazer com que a div rode */
 @keyframes spin {
   0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
+#button-search.onclick {
+  background-color: transparent;
+  border: 4px solid var(--branco);
+  border-top: 4px solid var(--preto);
+  color: var(--branco);
+  display: flex;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  transition: width 0.5s height 0.5s;
+  animation: spin 1.5s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  10% {
     transform: rotate(0deg);
   }
 

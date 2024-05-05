@@ -5,16 +5,21 @@ const cityInput = document.getElementById("city-input")
 // Arrow function pro evento de esconder botão e carregar loading
 
 function pesquisarLocal() {
-    var loading = document.getElementById("loading");
     // Desativa o botão assim que clicado
     buttonSearch.disabled = true;
-    // Escondendo o botão
-    buttonSearch.style.display = "none";
-    // Adicionando classe que possui evento fade-in dentro da div loading - div vai aparecer
-    loading.classList.add("fade-in");
+    // Escondendo o botão e seu conteúdo
+    buttonSearch.textContent = "";
+    buttonSearch.classList.add("onclick");
+    setTimeout(() => {
+        buttonSearch.classList.remove("onclick")
+        buttonSearch.textContent = "Pesquisar";
+        buttonSearch.disabled = false
+    }, "2000");
+
     realizarRequisicao();
 }
 
+// Função para realizar a requisição
 // async function realizarRequisicao() {
 //   const nomeCidade = document.getElementById("city-input").value.toLowerCase();
 //   let vento, chanceChuva, temperatura, local, requisicao, informacao, lat, lon;

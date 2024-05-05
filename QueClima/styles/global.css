@@ -5,6 +5,7 @@
   --borda: 1px solid red;
   --gradiente: linear-gradient(45deg, rgba(237, 67, 222, 1) 7%, rgba(101, 61, 233, 1) 55%, rgba(9, 9, 121, 1) 100%);
   --preto: #222222;
+  --branco: #f1f1f1;
 }
 
 
