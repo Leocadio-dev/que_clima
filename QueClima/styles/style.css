@@ -144,3 +144,9 @@
     transform: rotate(360deg);
   }
 }
+
+
+/* Código após busca dos dados da API */
+.form-api{
+  display: none;
+}
