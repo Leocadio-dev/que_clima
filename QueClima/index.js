@@ -1,65 +1,60 @@
 const apiKey = "2624348629b1d5ce175e2838060b49e6";
+
 const buttonSearch = document.getElementById("button-search");
 const cityInput = document.getElementById("city-input")
 
-// Arrow function pro evento de esconder botão e carregar loading
+const cityElement = document.getElementById("city");
+const tempElement = document.getElementById("temperatura");
 
-function pesquisarLocal() {
+// Arrow function pro evento de transformar o botão
+buttonSearch.addEventListener("click", () => {
+
     // Desativa o botão assim que clicado
     buttonSearch.disabled = true;
-    // Escondendo o botão e seu conteúdo
+    // Escondendo seu conteúdo e adicionando uma nova classe
     buttonSearch.textContent = "";
     buttonSearch.classList.add("onclick");
+    // Adicionando um tempo de 2 segundos para que o botão volte ao normal
     setTimeout(() => {
         buttonSearch.classList.remove("onclick")
         buttonSearch.textContent = "Pesquisar";
         buttonSearch.disabled = false
-    }, "2000");
+    }, "1200");
+})
 
-    realizarRequisicao();
-}
-
-// Função para realizar a requisição
-// async function realizarRequisicao() {
-//   const nomeCidade = document.getElementById("city-input").value.toLowerCase();
-//   let vento, chanceChuva, temperatura, local, requisicao, informacao, lat, lon;
-//   console.log(nomeCidade);
-//   try {
-//     requisicao = await fetch(
-//       `http://api.openweathermap.org/data/2.5/weather?q=${nomeCidade}&units=metric&appid=${apiKey}`
-//     );
-//     if (!requisicao.ok) {
-//       throw new Error("Não foi possível achar o nome dessa cidade");
-//     }
-//     informacao = await requisicao.json();
-//     lon = informacao[0].lon;
-//     lat = informacao[0].lat;
-//     console.log(informacao[0]);
-//     requisicao = await fetch(
-//       `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}`
-//     );
-//     informacao = await requisicao.json();
-//     console.log(informacao);
-//     temperatura = informacao.main.temp - 273;
-//     console.log(temperatura);
-//   } catch (error) {
-//     console.log(error);
-//   }
-// }
-
+// Arrow function para pegar o clima
 const pegarClima = async (city) => {
+    // URL da API
     const weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}&lang=pt_br`;
-
+    // Pegando a resposta da API
     const res = await fetch(weatherUrl);
+    // Transformando a resposta em JSON
     const data = await res.json();
-
+    // Mostrando os dados no console
     console.log(data);
     return data;
 }
 
-buttonSearch.addEventListener("click", (e) => {
-    e.preventDefault();
+// Inserindo dados na div
+const MostrarDadosClima = async (city) => {
+    const dados = await pegarClima(city);
 
+    cityElement.innerHTML = dados.name;
+}
+
+buttonSearch.addEventListener("click", (e) => {
+    // Previne o comportamento padrão do botão
+    e.preventDefault();
+    // Pegando o valor do input
     const city = cityInput.value;
-    pegarClima(city);
+    // Chamando a função pegarClima
+    MostrarDadosClima(city);
+})
+
+cityInput.addEventListener("keyup", (e) => {
+    if(e.code === "Enter") {
+        const city = e.target.value;
+
+        MostrarDadosClima(city);
+    }
 })
