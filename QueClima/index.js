@@ -38,8 +38,11 @@ const pegarClima = async (city) => {
 // Inserindo dados na div
 const MostrarDadosClima = async (city) => {
     const dados = await pegarClima(city);
-
     cityElement.innerHTML = dados.name;
+    // Inserindo a temperatura no texto
+    document.getElementById("temperatura").innerHTML = dados.main.temp
+    document.getElementById("umidade").innerHTML = dados.main.humidity
+    document.getElementById("vento").innerHTML = dados.wind.speed
 }
 
 buttonSearch.addEventListener("click", (e) => {
