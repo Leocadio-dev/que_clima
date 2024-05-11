@@ -145,8 +145,18 @@
   }
 }
 
-#dados-clima{
-  display: flex;
-  flex-direction: column;
+.dados-clima{
+  display: none;
+  justify-content: center;
   align-items: center;
+  flex-direction: column;
+  gap: 2rem;
+
+  padding: 4rem;
+
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.35);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(13.5px);
+  -webkit-backdrop-filter: blur(13.5px);
 }

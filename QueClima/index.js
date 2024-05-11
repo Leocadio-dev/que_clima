@@ -2,13 +2,12 @@ const apiKey = "2624348629b1d5ce175e2838060b49e6";
 
 const buttonSearch = document.getElementById("button-search");
 const cityInput = document.getElementById("city-input")
-
+const dadosClima = document.getElementsByClassName("dados-clima")
 const cityElement = document.getElementById("city");
 const tempElement = document.getElementById("temperatura");
 
 // Arrow function pro evento de transformar o botão
 buttonSearch.addEventListener("click", () => {
-
     // Desativa o botão assim que clicado
     buttonSearch.disabled = true;
     // Escondendo seu conteúdo e adicionando uma nova classe
@@ -18,7 +17,7 @@ buttonSearch.addEventListener("click", () => {
     setTimeout(() => {
         buttonSearch.classList.remove("onclick")
         buttonSearch.textContent = "Pesquisar";
-        buttonSearch.disabled = false
+        buttonSearch.disabled = false;
     }, "1200");
 })
 
@@ -37,9 +36,11 @@ const pegarClima = async (city) => {
 
 // Inserindo dados na div
 const MostrarDadosClima = async (city) => {
+
+    
     const dados = await pegarClima(city);
     cityElement.innerHTML = dados.name;
-    // Inserindo a temperatura no texto
+    // Inserindo a temperatura, umidade e vento no texto
     document.getElementById("temperatura").innerHTML = dados.main.temp
     document.getElementById("umidade").innerHTML = dados.main.humidity
     document.getElementById("vento").innerHTML = dados.wind.speed
