@@ -1,8 +1,8 @@
 const apiKey = "2624348629b1d5ce175e2838060b49e6";
 
 const buttonSearch = document.getElementById("button-search");
-const cityInput = document.getElementById("city-input")
-const dadosClima = document.getElementsByClassName("dados-clima")
+const cityInput = document.getElementById("city-input");
+const dadosClima = document.getElementById("dados-clima");
 const cityElement = document.getElementById("city");
 const tempElement = document.getElementById("temperatura");
 
@@ -15,9 +15,10 @@ buttonSearch.addEventListener("click", () => {
     buttonSearch.classList.add("onclick");
     // Adicionando um tempo de 2 segundos para que o botão volte ao normal
     setTimeout(() => {
-        buttonSearch.classList.remove("onclick")
+        buttonSearch.classList.remove("onclick");
         buttonSearch.textContent = "Pesquisar";
         buttonSearch.disabled = false;
+        dadosClima.classList.remove("hide")
     }, "1200");
 })
 
@@ -36,14 +37,14 @@ const pegarClima = async (city) => {
 
 // Inserindo dados na div
 const MostrarDadosClima = async (city) => {
-
     
     const dados = await pegarClima(city);
     cityElement.innerHTML = dados.name;
     // Inserindo a temperatura, umidade e vento no texto
-    document.getElementById("temperatura").innerHTML = dados.main.temp
-    document.getElementById("umidade").innerHTML = dados.main.humidity
-    document.getElementById("vento").innerHTML = dados.wind.speed
+    document.getElementById("temperatura").innerHTML = dados.main.temp;
+    document.getElementById("umidade").innerHTML = dados.main.humidity;
+    document.getElementById("vento").innerHTML = dados.wind.speed;
+    
 }
 
 buttonSearch.addEventListener("click", (e) => {
