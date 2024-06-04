@@ -1,6 +1,7 @@
 const apiKey = "2624348629b1d5ce175e2838060b49e6";
 
 const buttonSearch = document.getElementById("button-search");
+const loading = document.getElementById("loading");
 const cityInput = document.getElementById("city-input");
 const dadosClima = document.getElementById("dados-clima");
 const cityElement = document.getElementById("city");
@@ -10,15 +11,16 @@ const tempElement = document.getElementById("temperatura");
 buttonSearch.addEventListener("click", () => {
     // Desativa o botão assim que clicado
     buttonSearch.disabled = true;
-    // Escondendo seu conteúdo e adicionando uma nova classe
+    // Escondendo seu conteúdo e fazendo o ícone aparecer
     buttonSearch.textContent = "";
-    buttonSearch.classList.add("onclick");
+    // buttonSearch.classList.add("onclick");
     // Adicionando um tempo de 2 segundos para que o botão volte ao normal
     setTimeout(() => {
-        buttonSearch.classList.remove("onclick");
+        // buttonSearch.classList.remove("onclick");
+        loading.classList.remove("hide");
         buttonSearch.textContent = "Pesquisar";
         buttonSearch.disabled = false;
-        dadosClima.classList.remove("hide")
+        dadosClima.classList.remove("hide");
     }, "1200");
 })
 

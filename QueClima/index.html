@@ -6,7 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Que clima!</title>
   <script src="index.js" defer></script>
+  <script src="https://kit.fontawesome.com/d753270fe6.js" crossorigin="anonymous" defer></script>
   <link rel="stylesheet" href="styles/style.css" />
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
 </head>
 
 
@@ -17,7 +19,8 @@
       <div class="form-field">
         <label for="">Digite o nome da cidade</label>
         <input type="text" placeholder="Digite o nome do local" name="" id="city-input" />
-        <button id="button-search"> Pesquisar </button>
+        <button id="button-search">
+          <div id="loading" class="hide"></div> Pesquisar </button>
       </div>
     </div>
     <div id="dados-clima" class="hide">
